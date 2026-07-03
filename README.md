@@ -26,6 +26,3 @@ DIMAG is an AI-powered Disaster Response and Relief Management Platform designed
 ## Team
 
 Project under development.
-
-
-errrii
