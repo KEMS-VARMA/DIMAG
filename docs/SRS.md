@@ -75,3 +75,107 @@ The current scope of the project is limited to disaster response and relief mana
 | phone | String | Contact Number |
 | city | String | User City/District |
 | role | String | Citizen, Rescue Team, NGO, Admin |
+---
+
+# 5. User Roles
+
+The DIMAG system consists of the following user roles:
+
+### 1. Citizen
+- Register and log in
+- Send SOS requests
+- Report disasters
+- View safe shelters
+- Offer community help
+- View personal requests
+
+### 2. Rescue Team
+- Log in
+- View SOS requests
+- Accept rescue requests
+- Update rescue status
+
+### 3. NGO
+- Log in
+- View help requests
+- Manage available resources
+- Coordinate volunteers
+
+### 4. Administrator
+- Manage users
+- View all disaster reports
+- Monitor rescue operations
+- Manage shelters
+- Generate reports
+---
+
+# 6. Functional Requirements
+
+The DIMAG system shall provide the following functionalities:
+
+1. User Registration and Login.
+2. Send Emergency SOS requests.
+3. Report disasters with description and image.
+4. View available safe shelters.
+5. Offer community help.
+6. View personal request history.   
+7. Rescue teams can manage SOS requests.
+8. NGOs can manage help requests.
+9. Administrators can manage users and disaster reports.
+---
+
+# 7. Non-Functional Requirements
+
+The DIMAG system shall satisfy the following quality requirements:
+
+1. The system shall provide secure user authentication.
+2. The application shall be easy to use with a simple interface.
+3. The system shall respond quickly to user requests.
+4. The application shall be available 24/7 during emergencies.
+5. User information shall be stored securely.
+6. The system shall support future enhancements.
+---
+
+# 8. System Modules
+
+The DIMAG system consists of the following modules:
+
+### 1. Authentication Module
+- User Registration
+- User Login
+- Role-based Access
+
+### 2. Citizen Module
+- Send SOS
+- Report Disaster
+- View Safe Zones
+- Community Help
+- View My Requests
+
+### 3. Rescue Team Module
+- View SOS Requests
+- Accept Rescue Requests
+- Update Rescue Status
+
+### 4. NGO Module
+- Manage Help Requests
+- Update Resource Availability
+
+### 5. Administrator Module
+- Manage Users
+- Manage Disaster Reports
+- Monitor Overall System
+---
+
+# 9. Technology Stack
+
+The DIMAG system will be developed using the following technologies:
+
+| Component | Technology |
+|-----------|------------|
+| Frontend | React.js |
+| Backend | Spring Boot |
+| Database | MySQL |
+| AI Integration | OpenAI API |
+| Version Control | Git & GitHub |
+| Development Environment | Visual Studio Code |
