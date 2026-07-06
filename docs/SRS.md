@@ -179,3 +179,29 @@ The DIMAG system will be developed using the following technologies:
 | AI Integration | OpenAI API |
 | Version Control | Git & GitHub |
 | Development Environment | Visual Studio Code |
+---
+
+# 10. Database Design
+
+## Table 1: Users
+
+| Field Name | Data Type | Description |
+|------------|-----------|-------------|
+| user_id | INT | Unique User ID |
+| full_name | VARCHAR(100) | User Full Name |
+| email | VARCHAR(100) | User Email Address |
+| password | VARCHAR(255) | Encrypted Password |
+| phone | VARCHAR(15) | Contact Number |
+| city | VARCHAR(100) | City/District |
+| role | VARCHAR(20) | Citizen, Rescue Team, NGO, Admin |
+## Table 2: SOS_Requests
+
+| Field Name | Data Type | Description |
+|------------|-----------|-------------|
+| sos_id | INT | Unique SOS Request ID |
+| user_id | INT | User who sent the SOS |
+| injured | BOOLEAN | Is the user injured? |
+| people_count | INT | Number of people with the user |
+| medical_help | BOOLEAN | Medical help required |
+| message | TEXT | Optional emergency message |
+| status | VARCHAR(20) | Pending, Accepted, Completed |
