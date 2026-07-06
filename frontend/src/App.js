@@ -1,35 +1,37 @@
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Home from "./components/Home";
+import Help from "./components/Help";
 
 function App() {
+  const [screen, setScreen] = useState("home");
 
   function handleSOS() {
     alert("🚨 SOS Activated!\n\nYour location will be shared with the nearest rescue team.");
   }
 
-  function handleHelp() {
-    alert("🤝 Thank You!\n\nNo One Is Alone During a Disaster.\n\nChoose how you can help on the next screen.");
-  }
+ function handleHelp() {
+  setScreen("help");
+}
 
   function handleReport() {
     alert("🚨 Report Disaster\n\nReport submitted successfully.");
   }
-
+if (screen === "help") {
   return (
-    <div className="App">
-      <h1>DIMAG</h1>
-      <p>No One Is Alone During a Disaster</p>
-
-      <button onClick={handleSOS}>🆘 SEND SOS</button>
-
-      <button>🛡️ CHECK SAFE ZONES</button>
-
-      <button onClick={handleReport}>🚨 REPORT DISASTER</button>
-
-      <button onClick={handleHelp}>🤝 I CAN HELP</button>
-
-      <button>📋 MY REQUESTS</button>
-    </div>
+    <Help
+      goBack={() => setScreen("home")}
+    />
   );
+}
+
+ return (
+  <Home
+    handleSOS={handleSOS}
+    handleReport={handleReport}
+    handleHelp={handleHelp}
+  />
+);
 }
 
 export default App;
