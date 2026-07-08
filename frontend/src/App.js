@@ -8,6 +8,7 @@ import MyRequests from "./components/MyRequests";
 
 function App() {
   const [screen, setScreen] = useState("home");
+  const [requests, setRequests] = useState([]);
 
   function handleSOS() {
     alert("🚨 SOS Activated!\n\nYour location will be shared with the nearest rescue team.");
@@ -26,6 +27,18 @@ function handleSafeZones() {
 function handleMyRequests() {
   setScreen("myrequests");
 }
+
+function reportDisaster(type) {
+  const newRequest = {
+    type: `${type} Report`,
+    status: "Submitted"
+  };
+
+  setRequests([...requests, newRequest]);
+
+  setScreen("myrequests");
+}
+
 if (screen === "help") {
   return (
     <Help
@@ -35,9 +48,10 @@ if (screen === "help") {
 }
 if (screen === "report") {
   return (
-    <Report
-      goBack={() => setScreen("home")}
-    />
+<Report
+  goBack={() => setScreen("home")}
+  reportDisaster={reportDisaster}
+/>
   );
 }
 if (screen === "safezones") {
@@ -50,6 +64,7 @@ if (screen === "safezones") {
 if (screen === "myrequests") {
   return (
     <MyRequests
+    requests={requests}
       goBack={() => setScreen("home")}
     />
   );

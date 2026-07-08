@@ -1,9 +1,9 @@
-function Report({ goBack }) {
+function Report({ goBack, reportDisaster }) {
   return (
     <div className="App">
       <h1>REPORT DISASTER</h1>
 
-      <button>🔥 FIRE</button>
+      <button onClick={() => reportDisaster("🔥Fire ")}>🔥 FIRE</button>
 
       <button>🌊 FLOOD</button>
 
