@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import Help from "./components/Help";
+import Report from "./components/Report";
 
 function App() {
   const [screen, setScreen] = useState("home");
@@ -14,9 +15,9 @@ function App() {
   setScreen("help");
 }
 
-  function handleReport() {
-    alert("🚨 Report Disaster\n\nReport submitted successfully.");
-  }
+function handleReport() {
+  setScreen("report");
+}
 if (screen === "help") {
   return (
     <Help
@@ -24,7 +25,13 @@ if (screen === "help") {
     />
   );
 }
-
+if (screen === "report") {
+  return (
+    <Report
+      goBack={() => setScreen("home")}
+    />
+  );
+}
  return (
   <Home
     handleSOS={handleSOS}

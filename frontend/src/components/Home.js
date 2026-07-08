@@ -1,7 +1,7 @@
 function Home({ handleSOS, handleReport, handleHelp }) {
   return (
     <div className="App">
-      <h1>DIMAG</h1>
+      <h1>DI"MAG</h1>
 
       <p>No One Is Alone During a Disaster</p>
 
