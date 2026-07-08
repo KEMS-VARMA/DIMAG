@@ -1,4 +1,10 @@
-function Home({ handleSOS, handleReport, handleHelp }) {
+function Home({
+  handleSOS,
+  handleReport,
+  handleHelp,
+  handleSafeZones,
+  handleMyRequests
+}) {
   return (
     <div className="App">
       <h1>DI"MAG</h1>
@@ -7,13 +13,17 @@ function Home({ handleSOS, handleReport, handleHelp }) {
 
       <button onClick={handleSOS}>🆘 SEND SOS</button>
 
-      <button>🛡️ CHECK SAFE ZONES</button>
+      <button onClick={handleSafeZones}>
+  🛡️ CHECK SAFE ZONES
+</button>
 
       <button onClick={handleReport}>🚨 REPORT DISASTER</button>
 
       <button onClick={handleHelp}>🤝 I CAN HELP</button>
 
-      <button>📋 MY REQUESTS</button>
+      <button onClick={handleMyRequests}>
+  📋 MY REQUESTS
+</button>
     </div>
   );
 }

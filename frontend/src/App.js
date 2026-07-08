@@ -3,6 +3,8 @@ import "./App.css";
 import Home from "./components/Home";
 import Help from "./components/Help";
 import Report from "./components/Report";
+import SafeZones from "./components/SafeZones";
+import MyRequests from "./components/MyRequests";
 
 function App() {
   const [screen, setScreen] = useState("home");
@@ -18,6 +20,12 @@ function App() {
 function handleReport() {
   setScreen("report");
 }
+function handleSafeZones() {
+  setScreen("safezones");
+}
+function handleMyRequests() {
+  setScreen("myrequests");
+}
 if (screen === "help") {
   return (
     <Help
@@ -32,12 +40,28 @@ if (screen === "report") {
     />
   );
 }
+if (screen === "safezones") {
+  return (
+    <SafeZones
+      goBack={() => setScreen("home")}
+    />
+  );
+}
+if (screen === "myrequests") {
+  return (
+    <MyRequests
+      goBack={() => setScreen("home")}
+    />
+  );
+}
  return (
-  <Home
-    handleSOS={handleSOS}
-    handleReport={handleReport}
-    handleHelp={handleHelp}
-  />
+<Home
+  handleSOS={handleSOS}
+  handleReport={handleReport}
+  handleHelp={handleHelp}
+  handleSafeZones={handleSafeZones}
+  handleMyRequests={handleMyRequests}
+/>
 );
 }
 
