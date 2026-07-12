@@ -31,7 +31,7 @@ Project under development.
 
 ## Work Updates
 
-### 12 July 2026 — Frontend Complete ✅
+### Frontend Complete ✅
 
 - **Built full React.js frontend** from scratch using Create React App.
 - **Redesigned the UI** with a bold Neobrutalist design system — flat solid colors, black borders, hard drop shadows, no gradients.
