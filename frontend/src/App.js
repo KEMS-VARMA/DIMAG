@@ -1,83 +1,65 @@
 import { useState } from "react";
+import { Activity } from "lucide-react";
 import "./App.css";
 import Home from "./components/Home";
 import Help from "./components/Help";
 import Report from "./components/Report";
 import SafeZones from "./components/SafeZones";
 import MyRequests from "./components/MyRequests";
+import SosActive from "./components/SosActive";
+import SuccessConfirmation from "./components/SuccessConfirmation";
 
 function App() {
   const [screen, setScreen] = useState("home");
-  const [requests, setRequests] = useState([]);
+  const [successType, setSuccessType] = useState(null);
 
   function handleSOS() {
-    alert("🚨 SOS Activated!\n\nYour location will be shared with the nearest rescue team.");
+    setScreen("sos_active");
   }
 
- function handleHelp() {
-  setScreen("help");
-}
+  function handleSuccess(type) {
+    setSuccessType(type);
+    setScreen("success");
+  }
 
-function handleReport() {
-  setScreen("report");
-}
-function handleSafeZones() {
-  setScreen("safezones");
-}
-function handleMyRequests() {
-  setScreen("myrequests");
-}
+  function renderScreen() {
+    switch (screen) {
+      case "sos_active":
+        return <SosActive goBack={() => setScreen("home")} />;
+      case "success":
+        return <SuccessConfirmation goBack={() => setScreen("home")} type={successType} />;
+      case "help":
+        return <Help goBack={() => setScreen("home")} onSuccess={() => handleSuccess('help')} />;
+      case "report":
+        return <Report goBack={() => setScreen("home")} onSuccess={() => handleSuccess('report')} />;
+      case "safezones":
+        return <SafeZones goBack={() => setScreen("home")} />;
+      case "myrequests":
+        return <MyRequests goBack={() => setScreen("home")} />;
+      default:
+        return (
+          <div className="app-container">
+            <nav className="navbar solid-shadow">
+              <div className="navbar-brand" onClick={() => setScreen("home")}>
+                <Activity size={28} color="var(--color-sos)" strokeWidth={3} />
+                DIMAG
+              </div>
+            </nav>
+            <main className="main-content">
+              <Home
+                handleSOS={handleSOS}
+                handleReport={() => setScreen("report")}
+                handleHelp={() => setScreen("help")}
+                handleSafeZones={() => setScreen("safezones")}
+                handleMyRequests={() => setScreen("myrequests")}
+              />
+            </main>
+          </div>
+        );
+    }
+  }
 
-function reportDisaster(type) {
-  const newRequest = {
-    type: `${type} Report`,
-    status: "Submitted"
-  };
-
-  setRequests([...requests, newRequest]);
-
-  setScreen("myrequests");
-}
-
-if (screen === "help") {
-  return (
-    <Help
-      goBack={() => setScreen("home")}
-    />
-  );
-}
-if (screen === "report") {
-  return (
-<Report
-  goBack={() => setScreen("home")}
-  reportDisaster={reportDisaster}
-/>
-  );
-}
-if (screen === "safezones") {
-  return (
-    <SafeZones
-      goBack={() => setScreen("home")}
-    />
-  );
-}
-if (screen === "myrequests") {
-  return (
-    <MyRequests
-    requests={requests}
-      goBack={() => setScreen("home")}
-    />
-  );
-}
- return (
-<Home
-  handleSOS={handleSOS}
-  handleReport={handleReport}
-  handleHelp={handleHelp}
-  handleSafeZones={handleSafeZones}
-  handleMyRequests={handleMyRequests}
-/>
-);
+  return renderScreen();
 }
 
 export default App;

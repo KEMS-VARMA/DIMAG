@@ -1,33 +1,215 @@
-.App {
-  background-color: #121212;
+.app-container {
   min-height: 100vh;
-  color: white;
-  text-align: center;
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
-h1 {
-  color: #ff4d4d;
-  font-size: 48px;
+.navbar {
+  background-color: var(--color-white);
+  border-bottom: var(--border-width) solid var(--color-black);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-p {
-  color: #cccccc;
-  margin-bottom: 40px;
-  font-size: 18px;
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--color-text);
 }
 
-button {
-  display: block;
-  width: 300px;
-  margin: 15px auto;
-  padding: 15px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Home Grid Layout */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.action-card {
+  background-color: var(--color-white);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
   cursor: pointer;
 }
 
-button:hover {
-  transform: scale(1.03);
+.action-card h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.action-card p {
+  color: var(--color-text-light);
+  font-weight: 500;
+  margin: 0;
+}
+
+.card-sos {
+  background-color: var(--color-sos);
+  color: var(--color-white);
+}
+
+.card-sos p {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.card-safe {
+  background-color: var(--color-safe);
+}
+
+.card-report {
+  background-color: var(--color-report);
+}
+
+.card-help {
+  background-color: var(--color-help);
+  color: var(--color-white);
+}
+.card-help p {
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Form Styles */
+.form-container {
+  background-color: var(--color-white);
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: var(--border-width) solid var(--color-black);
+  padding-bottom: 1rem;
+}
+
+.form-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.form-control {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: var(--border-width) solid var(--color-black);
+  background-color: var(--color-bg);
+  font-family: inherit;
+}
+
+.form-control:focus {
+  outline: none;
+  background-color: var(--color-white);
+  box-shadow: 2px 2px 0px var(--color-black);
+}
+
+.form-control-error {
+  border-color: var(--color-sos);
+}
+
+.error-text {
+  color: var(--color-sos);
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Lists and Items */
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.item-card {
+  background-color: var(--color-white);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.item-info p {
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  font-weight: bold;
+  font-size: 0.875rem;
+  border: 2px solid var(--color-black);
+  text-transform: uppercase;
+}
+
+.status-pending { background-color: #ccc; }
+.status-completed { background-color: var(--color-safe); color: white; }
+.status-resolved { background-color: var(--color-safe); color: white; }
+.status-active { background-color: var(--color-sos); color: white; }
+.status-submitted { background-color: var(--color-help); color: white; }
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--color-white);
+  font-weight: bold;
+  color: var(--color-text-light);
+}
+
+/* Back Button */
+.btn-back {
+  background-color: var(--color-white);
+  border: var(--border-width) solid var(--color-black);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,3 +1,25 @@
+:root {
+  --color-bg: #EEF6EA;
+  --color-text: #1B2A4A;
+  --color-text-light: #3D6A8C;
+  --color-sos: #D9435D;
+  --color-safe: #2A9D8F;
+  --color-help: #3D6A8C;
+  --color-report: #F0A060;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  
+  --border-width: 3px;
+  --border-radius: 0px;
+  --box-shadow: 4px 4px 0px var(--color-black);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +27,86 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Global utility classes for the Neobrutalist theme */
+.solid-border {
+  border: var(--border-width) solid var(--color-black);
+}
+
+.solid-shadow {
+  box-shadow: var(--box-shadow);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.solid-shadow:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-black);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: var(--color-white);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-black);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-black);
+}
+
+.btn-sos {
+  background-color: var(--color-sos);
+  color: var(--color-white);
+}
+
+.btn-primary {
+  background-color: var(--color-help);
+  color: var(--color-white);
+}
+
+.btn-outline {
+  background-color: var(--color-white);
+  color: var(--color-text);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes skeleton-pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.skeleton {
+  background-color: #cbd5e1;
+  animation: skeleton-pulse 1.5s infinite;
+  border: var(--border-width) solid var(--color-black);
 }
